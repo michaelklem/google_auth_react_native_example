@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "244526737192",
+    "project_id": "starry-polymer-312814",
+    "storage_bucket": "starry-polymer-312814.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244526737192:android:c357761781a0523e65d21d",
+        "android_client_info": {
+          "package_name": "com.instamobile_google_login_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244526737192-udo27k3q287ds6kkh2rhaji4v0mjga1b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.instamobile_google_login_demo",
+            "certificate_hash": "d7498741091dc90e93c5bb7f499b7a2869606909"
+          }
+        },
+        {
+          "client_id": "244526737192-r2vf7f5b9q4dl1q2a4stvrh58m11cn41.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3nIgaVQ0l2EfAuMqazacuFK-AvCufYIo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244526737192-r2vf7f5b9q4dl1q2a4stvrh58m11cn41.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
