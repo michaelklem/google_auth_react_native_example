@@ -25,11 +25,15 @@ import auth from '@react-native-firebase/auth';
 export default () => {
   const [loggedIn, setloggedIn] = useState(false);
   const [user, setUser] = useState([]);
+  const [progress, inProgress] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   _signIn = async () => {
     try {
+      setClicked(true)
       await GoogleSignin.hasPlayServices();
       const {accessToken, idToken} = await GoogleSignin.signIn();
+      inProgress(true)
       setloggedIn(true);
 
       const credential = auth.GoogleAuthProvider.credential(
@@ -37,10 +41,14 @@ export default () => {
         accessToken,
       );
       await auth().signInWithCredential(credential);
+      setClicked(false)
+      inProgress(false)
     } catch (error) {
+      setClicked(false)
+      inProgress(false)
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
-        alert('Cancel');
+        //alert('Cancel');
       } else if (error.code === statusCodes.IN_PROGRESS) {
         alert('Signin in progress');
         // operation (f.e. sign in) is in progress already
@@ -74,7 +82,7 @@ export default () => {
       await GoogleSignin.signOut();
       auth()
         .signOut()
-        .then(() => alert('Your are signed out!'));
+        .then(() => console.log('Your are signed out!'));
       setloggedIn(false);
       // setuserInfo([]);
     } catch (error) {
@@ -98,11 +106,13 @@ export default () => {
                   size={GoogleSigninButton.Size.Wide}
                   color={GoogleSigninButton.Color.Dark}
                   onPress={this._signIn}
+                  disabled={clicked}
                 />
               )}
             </View>
             <View style={styles.buttonContainer}>
-              {!user && <Text>You are currently logged out</Text>}
+              {!user && (progress === true) && <Text>Please wait...</Text>}
+              {!user && (progress === false) && <Text>You are currently logged out</Text>}
               {user && (
                 <View>
                   <Text>Welcome {user.displayName}</Text>
