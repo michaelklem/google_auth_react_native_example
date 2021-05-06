@@ -19,3 +19,6 @@ References:
 https://www.instamobile.io/mobile-development/google-login-react-native-firebase/
 
 https://www.freecodecamp.org/news/google-login-with-react-native-and-firebase/
+
+Uses this library for google signin
+https://github.com/react-native-google-signin/google-signin
